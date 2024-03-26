@@ -19,7 +19,7 @@ const NavBar = () => {
             >
               <Logo color={"text-white"} />
               <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                CryptoFund
+                CryptoFundze
               </span>
             </a>
             <ul className="flex items-center ml-8 hidden space-x-8 lg:flex">
@@ -74,7 +74,7 @@ const NavBar = () => {
                       >
                         <Logo color={"text-black"} />
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-700 uppercase">
-                          CryptoFund
+                          CryptoFundze
                         </span>
                       </a>{" "}
                       <button
