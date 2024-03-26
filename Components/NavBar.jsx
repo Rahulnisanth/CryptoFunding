@@ -105,6 +105,7 @@ const NavBar = () => {
                           href="/"
                           aria-label="wallet button"
                           className="inline-flex justify-center items-center h-12 p-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-40 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none background"
+                          onClick={() => connectWallet()}
                         >
                           Connect Wallet
                         </a>
