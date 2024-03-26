@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-// import { CrowdFundingContext } from "../Context/CrowdFunding";
+import { CrowdFundingContext } from "../Context/CrowdFunding";
 import { Menu, Logo, Close } from "../Components/index";
 const NavBar = () => {
-  // const { currentAccount, connectWallet } = useContext(CrowdFundingContext);
-  const currentAccount = false;
+  const { currentAccount, connectWallet } = useContext(CrowdFundingContext);
   const [menuOpen, setIsMenuOpen] = useState(false);
   const menuList = ["About", "Project", "Donation", "Members"];
   return (
@@ -43,9 +42,7 @@ const NavBar = () => {
             <ul className="flex items-center hidden space-x-8 lg:flex">
               <li>
                 <button
-                  onClick={() =>
-                    window.alert("This will get you the wallet page.")
-                  }
+                  onClick={() => connectWallet()}
                   className="inline-flex justify-center items-center h-12 p-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-40 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none background"
                   aria-label="sign-in"
                 >
