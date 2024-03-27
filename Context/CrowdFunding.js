@@ -63,27 +63,52 @@ export const CrowdFundingProvider = ({ children }) => {
 
   // GET SIGNED USER CAMPAIGNS ==>
   const getUserCampaigns = async () => {
-    const provider = new ethers.providers.JsonRpcProvider();
-    const contract = fetchContract(provider);
-    const allCampaigns = await contract.getAllCampaigns();
-    const accounts = await window.ethereum.request({
-      method: "eth_accounts",
-    });
-    const currentUser = accounts[0];
-    const filteredCampaigns = allCampaigns.filter(
-      (campaign) =>
-        campaign.owner === "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266"
-    );
-    const userCampaign = filteredCampaigns.map((campaign, i) => ({
-      owner: campaign.owner,
-      title: campaign.title,
-      description: campaign.description,
-      target: ethers.utils.formatEther(campaign.target),
-      deadline: campaign.deadline.toNumber(),
-      amountCollected: ethers.utils.formatEther(campaign.amountCollected),
-      pId: i,
-    }));
-    return userCampaign;
+    try {
+      // Check if Ethereum provider (e.g., MetaMask) is available
+      if (!window.ethereum) {
+        console.log("Please install your MetaMask wallet!");
+        return [];
+      }
+
+      // Get the user's current Ethereum address
+      const accounts = await window.ethereum.request({
+        method: "eth_accounts",
+      });
+      const currentUser = accounts[0];
+
+      // If no account is found, return an empty array
+      if (!currentUser) {
+        console.log("No Ethereum account found!");
+        return [];
+      }
+
+      // Create an ethers provider
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+      // Fetch the contract
+      const contract = fetchContract(provider);
+
+      // Get all campaigns
+      const allCampaigns = await contract.getAllCampaigns();
+
+      // Filter campaigns owned by the current user
+      const userCampaigns = allCampaigns
+        .filter((campaign) => campaign.owner === currentUser)
+        .map((campaign, i) => ({
+          owner: campaign.owner,
+          title: campaign.title,
+          description: campaign.description,
+          target: ethers.utils.formatEther(campaign.target),
+          deadline: campaign.deadline.toNumber(),
+          amountCollected: ethers.utils.formatEther(campaign.amountCollected),
+          pId: i,
+        }));
+
+      return userCampaigns;
+    } catch (error) {
+      console.error("Error fetching user campaigns:", error);
+      return [];
+    }
   };
 
   // DONATION FUNCTION ==>

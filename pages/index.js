@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { CrowdFundingContext } from "../Context/CrowdFunding";
 import { Hero, Card, PopUp } from "../Components/index";
 
-const index = () => {
+const Index = () => {
   const {
     titleData,
     getCampaigns,
@@ -12,45 +12,45 @@ const index = () => {
     getDonations,
   } = useContext(CrowdFundingContext);
 
-  // Over-all & Signer campaigns management />
-  const [allCampaigns, setAllCampaigns] = useState();
-  const [userCampaigns, setUserCampaigns] = useState();
-  // Rendering data from the back-end modal asynchronously />
+  const [allCampaigns, setAllCampaigns] = useState([]);
+  const [userCampaigns, setUserCampaigns] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [donateCampaign, setDonateCampaign] = useState(null);
+
   useEffect(() => {
-    const allCampaignsData = getCampaigns();
-    const userCampaignsData = getUserCampaigns();
-    return async () => {
-      const allData = await allCampaignsData;
-      const userData = await userCampaignsData;
-      setAllCampaigns(allData);
-      setUserCampaigns(userData);
+    const fetchData = async () => {
+      try {
+        const allData = await getCampaigns();
+        const userData = await getUserCampaigns();
+        setAllCampaigns(allData || []);
+        setUserCampaigns(userData || []);
+      } catch (error) {
+        console.error("Error fetching campaign data:", error);
+      }
     };
+    fetchData();
   }, []);
 
-  // donation state management />
-  const [openModal, setOpenModal] = useState(false);
-  const [donateCampaign, setDonateCampaign] = useState();
-  // console.log(donateCampaign);
-  // final return statement -> index () />
   return (
     <>
       <Hero titleData={titleData} createCampaign={createCampaign} />
-      {/* Cards of overall campaigns of the dApp */}
-      <Card
-        title="All campaigns of the web"
-        allCampaigns={allCampaigns}
-        setOpenModal={setOpenModal}
-        setDonate={setDonateCampaign}
-      />
-      {/* Card of the campaigns created by the signed user of the dApp */}
-      <Card
-        title="Signer campaigns"
-        allCampaigns={userCampaigns}
-        setOpenModal={setOpenModal}
-        setDonate={setDonateCampaign}
-      />
-      {/* Popup for the donations */}
-      {openModal && (
+      {allCampaigns && (
+        <Card
+          title="Overall Campaigns"
+          allCampaigns={allCampaigns}
+          setOpenModal={setOpenModal}
+          setDonate={setDonateCampaign}
+        />
+      )}
+      {userCampaigns && (
+        <Card
+          title="Your Campaigns"
+          allCampaigns={userCampaigns}
+          setOpenModal={setOpenModal}
+          setDonate={setDonateCampaign}
+        />
+      )}
+      {openModal && donateCampaign && (
         <PopUp
           title="Popup"
           setOpenModal={setOpenModal}
@@ -63,4 +63,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

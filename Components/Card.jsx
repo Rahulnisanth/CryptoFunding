@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ allCampaigns, setOpenModal, setDonate, title }) => {
+const Card = ({ title, allCampaigns, setOpenModal, setDonate }) => {
   console.log(allCampaigns);
 
   const daysLeft = (deadline) => {
