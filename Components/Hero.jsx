@@ -35,13 +35,15 @@ const Hero = ({ titleData, createCampaign }) => {
             <div className="flex flex-col items-center justify-between xl:flex-row">
               <div className="w-full max-w-xl mb-12 -mt-10 xl:mb-0 xl:pr-6 xl:w-7/12 lg:-mt-10">
                 <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-5xl sm-leading-none">
-                  Crypto Fundze
+                  <span className="max-w-lg mb-6 font-sans text-4xl font-bold tracking-tight text-white sm:text-5xl sm-leading-none uppercase">
+                    CryptoFundze.
+                  </span>
                   <br className="hidden md:block" /> The Funding dApp
                 </h2>
                 <p className="max-w-xl text-justify text-base mb-4 text-gray-200 md:text-lg">
                   Our Crypto Fundze DApp enables campaign creators to raise
-                  funds directly from a global pool of investors without the
-                  need for intermediaries.
+                  funds directly from a decentralized pool of investors without
+                  the need for intermediaries.
                 </p>
                 <a
                   href="https://www.blockchain.com/"
