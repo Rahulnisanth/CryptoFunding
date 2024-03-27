@@ -5,6 +5,7 @@ import { CrowdFundingABI, CrowdFundingAddress } from "./contents";
 
 //Fetching the contracts :
 const fetchContract = (signerOrProvider) => {
+  console.log(signerOrProvider, CrowdFundingAddress, CrowdFundingABI);
   return new ethers.Contract(
     CrowdFundingAddress,
     CrowdFundingABI,
@@ -47,7 +48,7 @@ export const CrowdFundingProvider = ({ children }) => {
   const getCampaigns = async () => {
     const provider = new ethers.providers.JsonRpcProvider();
     const contract = fetchContract(provider);
-    const campaigns = await contract.getCampaigns();
+    const campaigns = await contract.getAllCampaigns();
     const parsedCampaign = campaigns.map((campaign, i) => ({
       owner: campaign.owner,
       title: campaign.title,
@@ -64,7 +65,7 @@ export const CrowdFundingProvider = ({ children }) => {
   const getUserCampaigns = async () => {
     const provider = new ethers.providers.JsonRpcProvider();
     const contract = fetchContract(provider);
-    const allCampaigns = await contract.getCampaigns();
+    const allCampaigns = await contract.getAllCampaigns();
     const accounts = await window.ethereum.request({
       method: "eth_accounts",
     });
