@@ -1,8 +1,7 @@
 import React from "react";
+import campaignSample from "../Context/campaignSample.json";
 
 const Card = ({ title, allCampaigns, setOpenModal, setDonate }) => {
-  console.log(allCampaigns);
-
   const daysLeft = (deadline) => {
     const difference = new Date(deadline).getTime() - Date.now();
     const remainingDays = difference / (1000 * 3600 * 24);
@@ -11,13 +10,16 @@ const Card = ({ title, allCampaigns, setOpenModal, setDonate }) => {
 
   return (
     <div className="px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-4 lg:px-8 lg:py-20">
-      <p className="py-16 text-2xl font-bold leading-5">{title}</p>
+      <p className="py-16 text-xl font-bold leading-5 lg:text-4xl md:text-2xl">
+        {campaignSample.title}
+      </p>
       <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-        {allCampaigns?.map((campaign, i) => {
+        {campaignSample.allCampaigns?.map((campaign, i) => {
           return (
             <div
               onClick={() => {
-                setDonate(campaign), setOpenModal(true);
+                setDonate(campaign);
+                setOpenModal(true);
               }}
               key={i}
               className="cursor-pointer border overflow-hidden transition-shadow duration-300 bg-white rounded"
@@ -27,9 +29,9 @@ const Card = ({ title, allCampaigns, setOpenModal, setDonate }) => {
                 className="object-cover h-67 w-full rounded"
                 alt="card image"
               />
-              <div className="py-5 pl-2">
+              <div className="py-5 px-4">
                 <p className="mb-2 text-xs font-semibold text-gray-600 uppercase">
-                  Days Left : {daysLeft(campaign.deadline)}
+                  Days Left: {daysLeft(campaign.deadline)}
                 </p>
                 <a
                   href="/"
@@ -39,11 +41,13 @@ const Card = ({ title, allCampaigns, setOpenModal, setDonate }) => {
                     {campaign.title}
                   </p>
                 </a>
-                <p className="mb-4 text-gray-700">{campaign.description}</p>
+                <p className="text-justify mb-4 text-gray-700">
+                  {campaign.description}
+                </p>
                 <div className="flex space-x-4">
-                  <p className="font-semibold">Target : {campaign.target}</p>
+                  <p className="font-semibold">Target: {campaign.target}</p>
                   <p className="font-semibold">
-                    Raised : {campaign.amountCollected} ETH
+                    Raised: {campaign.amountCollected} ETH
                   </p>
                 </div>
               </div>

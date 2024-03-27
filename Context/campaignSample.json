@@ -1,0 +1,26 @@
+{
+  "title": "Featured Campaigns",
+  "allCampaigns": [
+    {
+      "title": "Help Build a School in Africa",
+      "description": "Join us in our mission to build a school for underprivileged children in Africa. Your contribution will make a huge life.",
+      "deadline": "2024-10-31",
+      "target": "50000",
+      "amountCollected": "25000"
+    },
+    {
+      "title": "Support Clean Water Initiative",
+      "description": "Support our initiative to provide clean drinking water to remote villages. Every donation counts a huge difference in their lives.",
+      "deadline": "2024-09-15",
+      "target": "10000",
+      "amountCollected": "7500"
+    },
+    {
+      "title": "Save the Rainforest",
+      "description": "Help us protect the rainforest from deforestation. Your contribution will help preserve precious ecosystems and wildlife.",
+      "deadline": "2024-11-30",
+      "target": "75000",
+      "amountCollected": "50000"
+    }
+  ]
+}

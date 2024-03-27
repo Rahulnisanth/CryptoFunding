@@ -6,32 +6,18 @@
 // Gas used:            1342563 of 1342563
 // Block #1:            0x94fd8ac1d65b19359df4e13e10b8bdffa5f891f4e1b19db0f255f292d8bbe8b6
 
-// const hre = require("hardhat");
-
-// async function main() {
-//   const CrowdFunding = await hre.ethers.getContractFactory("CrowdFunding");
-//   const crowdFunding = await CrowdFunding.deploy();
-
-//   await crowdFunding.deployed();
-
-//   console.log(`crowdFunding deployed to ${crowdFunding.address}`);
-// }
-
-// main().catch((error) => {
-//   console.error(error);
-//   process.exitCode = 1;
-// });
+const hre = require("hardhat");
 
 async function main() {
-  const CrowdFunding = await ethers.getContractFactory("CrowdFunding");
+  const CrowdFunding = await hre.ethers.getContractFactory("CrowdFunding");
   const crowdFunding = await CrowdFunding.deploy();
 
-  console.log("Contract deployed to address:", crowdFunding.address);
+  await crowdFunding.deployed();
+
+  console.log(`crowdFunding deployed to ${crowdFunding.address}`);
 }
 
-main()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

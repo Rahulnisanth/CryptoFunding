@@ -19,7 +19,6 @@ export const CrowdFundingProvider = ({ children }) => {
   const titleData = "CrowdFunding contract!";
   const [currentAccount, setCurrentAccount] = useState("");
 
-  // CREATE CAMPAIGN FUNCTION ==>
   const createCampaign = async (campaign) => {
     const { title, description, amount, deadline } = campaign;
     const web3modal = new Web3Modal();
@@ -30,12 +29,18 @@ export const CrowdFundingProvider = ({ children }) => {
     console.log(currentAccount);
 
     try {
+      // Ensure no value is attached to the transaction
+      const overrides = {
+        value: ethers.BigNumber.from("0"), // No value attached
+      };
+
       const transaction = await contract.createCampaign(
         currentAccount,
         title,
         description,
         ethers.utils.parseUnits(amount, 18),
-        new Date(deadline).getTime()
+        new Date(deadline).getTime(),
+        overrides // Pass overrides to ensure no value is attached
       );
       await transaction.wait();
       console.log("Transaction successful :", transaction);

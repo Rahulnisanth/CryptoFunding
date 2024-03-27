@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import { Icon } from "../Components/index";
 import { Arrow } from "../Components/index";
 
@@ -15,7 +15,7 @@ const Hero = ({ titleData, createCampaign }) => {
     e.preventDefault();
     try {
       const data = await createCampaign(campaign);
-      console.log(data);
+      console.log("The form Data =>>", data);
     } catch (error) {
       console.log("Error during campaign creation :", error);
     }
@@ -58,7 +58,7 @@ const Hero = ({ titleData, createCampaign }) => {
                   <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
                     Create Campaign here
                   </h3>
-                  <form>
+                  <form onSubmit={createNewCampaign}>
                     {/* Title field */}
                     <div className="mb-1 sm:mb-2">
                       <label
@@ -148,9 +148,6 @@ const Hero = ({ titleData, createCampaign }) => {
                     <div className="mt-4 mb-2 sm:mb-4">
                       <button
                         type="submit"
-                        onClick={(e) => {
-                          createNewCampaign(e);
-                        }}
                         className="inline-flex w-full justify-center items-center h-12 p-6 font-medium uppercase tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-40 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none background"
                       >
                         Initialize
