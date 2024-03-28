@@ -18,24 +18,6 @@ export const CrowdFundingProvider = ({ children }) => {
   const titleData = "CrowdFunding contract!";
   const [currentAccount, setCurrentAccount] = useState("");
 
-  // CHECKING THE CONTRACT AND BLOCK CODE :
-  const checkContractCode = async () => {
-    // Create a provider to fetch contract code
-    const provider = new ethers.providers.JsonRpcProvider();
-
-    // Fetch contract code
-    const deployedCode = await provider.getCode(CrowdFundingAddress);
-
-    // Compare deployed code with local compiled code
-    console.log("Deployed contract code:", deployedCode);
-    console.log("Local compiled contract code:", CrowdFundingABI);
-  };
-
-  // Check contract code on component mount
-  useEffect(() => {
-    checkContractCode();
-  }, []);
-
   const createCampaign = async (campaign) => {
     const { title, description, amount, deadline } = campaign;
     const web3modal = new Web3Modal();
