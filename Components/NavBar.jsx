@@ -38,7 +38,7 @@ const NavBar = () => {
               })}
             </ul>
           </div>
-          {currentAccount && (
+          {!currentAccount && (
             <ul className="flex items-center hidden space-x-8 lg:flex">
               <li>
                 <button
@@ -100,16 +100,18 @@ const NavBar = () => {
                           </li>
                         );
                       })}
-                      <li>
-                        <a
-                          href="/"
-                          aria-label="wallet button"
-                          className="inline-flex justify-center items-center h-12 p-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-40 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none background"
-                          onClick={() => connectWallet()}
-                        >
-                          Connect Wallet
-                        </a>
-                      </li>
+                      {!currentAccount && (
+                        <li>
+                          <a
+                            href="/"
+                            aria-label="wallet button"
+                            className="inline-flex justify-center items-center h-12 p-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-40 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none background"
+                            onClick={() => connectWallet()}
+                          >
+                            Connect Wallet
+                          </a>
+                        </li>
+                      )}
                     </ul>
                   </nav>
                 </div>
