@@ -1,5 +1,4 @@
 import React from "react";
-import campaignSample from "../Context/campaignSample.json";
 
 const Card = ({ title, allCampaigns, setOpenModal, setDonate }) => {
   const daysLeft = (deadline) => {
@@ -11,10 +10,10 @@ const Card = ({ title, allCampaigns, setOpenModal, setDonate }) => {
   return (
     <div className="px-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-4 lg:px-8 lg:py-20">
       <p className="py-10 text-2xl font-bold leading-5 lg:text-4xl md:text-3xl">
-        {campaignSample.title}
+        {title}
       </p>
       <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-        {campaignSample.allCampaigns?.map((campaign, i) => {
+        {allCampaigns?.map((campaign, i) => {
           return (
             <div
               onClick={() => {

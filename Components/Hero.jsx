@@ -15,7 +15,7 @@ const Hero = ({ titleData, createCampaign }) => {
     e.preventDefault();
     try {
       const data = await createCampaign(campaign);
-      console.log("The form Data =>>", data);
+      console.log("Submission successful!!!", data);
     } catch (error) {
       console.log("Error during campaign creation :", error);
     }

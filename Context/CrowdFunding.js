@@ -5,7 +5,6 @@ import { CrowdFundingABI, CrowdFundingAddress } from "./contents";
 
 //Fetching the contracts :
 const fetchContract = (signerOrProvider) => {
-  console.log(signerOrProvider, CrowdFundingAddress, CrowdFundingABI);
   return new ethers.Contract(
     CrowdFundingAddress,
     CrowdFundingABI,
@@ -19,6 +18,24 @@ export const CrowdFundingProvider = ({ children }) => {
   const titleData = "CrowdFunding contract!";
   const [currentAccount, setCurrentAccount] = useState("");
 
+  // CHECKING THE CONTRACT AND BLOCK CODE :
+  const checkContractCode = async () => {
+    // Create a provider to fetch contract code
+    const provider = new ethers.providers.JsonRpcProvider();
+
+    // Fetch contract code
+    const deployedCode = await provider.getCode(CrowdFundingAddress);
+
+    // Compare deployed code with local compiled code
+    console.log("Deployed contract code:", deployedCode);
+    console.log("Local compiled contract code:", CrowdFundingABI);
+  };
+
+  // Check contract code on component mount
+  useEffect(() => {
+    checkContractCode();
+  }, []);
+
   const createCampaign = async (campaign) => {
     const { title, description, amount, deadline } = campaign;
     const web3modal = new Web3Modal();
@@ -26,8 +43,7 @@ export const CrowdFundingProvider = ({ children }) => {
     const provider = new ethers.providers.Web3Provider(connection);
     const signer = provider.getSigner();
     const contract = fetchContract(signer);
-    console.log(currentAccount);
-
+    console.log("Contract in >>>>> ", contract);
     try {
       // Ensure no value is attached to the transaction
       const overrides = {
@@ -40,7 +56,7 @@ export const CrowdFundingProvider = ({ children }) => {
         description,
         ethers.utils.parseUnits(amount, 18),
         new Date(deadline).getTime(),
-        overrides // Pass overrides to ensure no value is attached
+        overrides
       );
       await transaction.wait();
       console.log("Transaction successful :", transaction);
@@ -63,6 +79,7 @@ export const CrowdFundingProvider = ({ children }) => {
       amountCollected: ethers.utils.formatEther(campaign.amountCollected),
       pId: i,
     }));
+    console.log("Parsed campaigns => ", parsedCampaign);
     return parsedCampaign;
   };
 

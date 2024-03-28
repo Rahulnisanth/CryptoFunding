@@ -3,6 +3,7 @@ import { CrowdFundingContext } from "../Context/CrowdFunding";
 import { Hero, Card, PopUp } from "../Components/index";
 
 const Index = () => {
+  // console.log(useContext(CrowdFundingContext));
   const {
     titleData,
     getCampaigns,
@@ -14,6 +15,7 @@ const Index = () => {
 
   const [allCampaigns, setAllCampaigns] = useState([]);
   const [userCampaigns, setUserCampaigns] = useState([]);
+  //Modal manure >>>
   const [openModal, setOpenModal] = useState(false);
   const [donateCampaign, setDonateCampaign] = useState(null);
 
@@ -22,8 +24,10 @@ const Index = () => {
       try {
         const allData = await getCampaigns();
         const userData = await getUserCampaigns();
-        setAllCampaigns(allData || []);
-        setUserCampaigns(userData || []);
+        console.log("All campaigns >>> ", allData);
+        console.log("User campaigns >>> ", userData);
+        setAllCampaigns(allData);
+        setUserCampaigns(userData);
       } catch (error) {
         console.error("Error fetching campaign data:", error);
       }
