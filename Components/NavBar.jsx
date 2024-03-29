@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { CrowdFundingContext } from "../Context/CrowdFunding";
 import { Menu, Logo, Close } from "../Components/index";
 const NavBar = () => {

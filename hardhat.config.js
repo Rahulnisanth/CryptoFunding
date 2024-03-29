@@ -2,13 +2,24 @@ require("@nomicfoundation/hardhat-toolbox");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.9",
-  networks: {
-    hardhat: {
-      accounts: {
-        mnemonic: process.env.SEED_PHRASE,
+  solidity: {
+    version: "0.8.19",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
       },
-      chainId: 1337,
     },
   },
 };
+
+// module.exports = {
+//   networks: {
+//     hardhat: {
+//       accounts: {
+//         mnemonic: process.env.SEED_PHRASE,
+//       },
+//       chainId: 1337,
+//     },
+//   },
+// };
