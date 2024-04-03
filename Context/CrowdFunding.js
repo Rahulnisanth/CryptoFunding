@@ -17,6 +17,7 @@ export const CrowdFundingProvider = ({ children }) => {
   const titleData = "CrowdFunding contract!";
   const [currentAccount, setCurrentAccount] = useState("");
   const [web3Modal, setWeb3Modal] = useState(null);
+
   useEffect(() => {
     // Instantiate Web3Modal when running in the browser
     if (typeof window !== "undefined") {
@@ -24,6 +25,7 @@ export const CrowdFundingProvider = ({ children }) => {
       setWeb3Modal(modal);
     }
   }, []);
+
   const getProviderAndSigner = async () => {
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
