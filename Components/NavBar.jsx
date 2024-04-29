@@ -4,12 +4,12 @@ import { Menu, Logo, Close } from "../Components/index";
 const NavBar = () => {
   const { currentAccount, connectWallet } = useContext(CrowdFundingContext);
   const [menuOpen, setIsMenuOpen] = useState(false);
-  const menuList = ["About", "Project", "Donation", "Members"];
+  const menuList = ["Home", "Donations", "Members"];
   return (
     <div className="backgroundMain">
       <div className="px-4 py-7 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex justify-between items-center">
             <a
               href="/"
               aria-label="company"
@@ -17,8 +17,8 @@ const NavBar = () => {
               className="inline-flex items-center mr-8"
             >
               <Logo color={"text-white"} />
-              <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                CryptoFundze
+              <span className="ml-2 mr-12 text-xl font-bold tracking-widest text-gray-100 uppercase">
+                CryptoFundze.
               </span>
             </a>
             <ul className="flex items-center ml-8 hidden space-x-8 lg:flex">
@@ -29,7 +29,7 @@ const NavBar = () => {
                       href="/"
                       aria-label="products"
                       title="products"
-                      className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-40"
+                      className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-green-500"
                     >
                       {item}
                     </a>

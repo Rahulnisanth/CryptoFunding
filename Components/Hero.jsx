@@ -42,7 +42,7 @@ const Hero = ({ titleData, createCampaign }) => {
                 </h2>
                 <p className="max-w-xl text-justify text-base mb-4 text-gray-200 md:text-lg">
                   Our Crypto Fundze DApp enables campaign creators to raise
-                  funds directly from a decentralized pool of investors with
+                  funds directly from a decentralized pool of investors without
                   intermediaries.
                 </p>
               </div>
