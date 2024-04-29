@@ -34,25 +34,17 @@ const Hero = ({ titleData, createCampaign }) => {
           <div className="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-16">
             <div className="flex flex-col items-center justify-between xl:flex-row">
               <div className="w-full max-w-xl mb-12 -mt-10 xl:mb-0 xl:pr-6 xl:w-7/12 lg:-mt-10">
-                <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-5xl sm-leading-none">
-                  <span className="max-w-lg mb-6 font-sans text-4xl font-bold tracking-tight text-white sm:text-5xl sm-leading-none uppercase">
+                <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-wider text-white sm:text-5xl sm-leading-none">
+                  <span className="max-w-lg mb-6 tracking-widest font-sans text-4xl font-bold tracking-tight text-white sm:text-5xl sm-leading-none uppercase">
                     CryptoFundze.
                   </span>
-                  <br className="hidden md:block" /> The Funding dApp
+                  <br className=" hidden md:block" /> The Funding dApp
                 </h2>
                 <p className="max-w-xl text-justify text-base mb-4 text-gray-200 md:text-lg">
                   Our Crypto Fundze DApp enables campaign creators to raise
-                  funds directly from a decentralized pool of investors without
-                  the need for intermediaries.
+                  funds directly from a decentralized pool of investors with
+                  intermediaries.
                 </p>
-                <a
-                  href="https://www.blockchain.com/"
-                  aria-label="learn more"
-                  className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700 text-gray-200"
-                >
-                  Learn more
-                  <Arrow />
-                </a>
               </div>
 
               <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
@@ -78,7 +70,7 @@ const Hero = ({ titleData, createCampaign }) => {
                         placeholder="Title"
                         required
                         type="text"
-                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rou ded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rou ded shadow-sm appearance-none focus:border-deep-green-accent-400 focus:outline-none focus:shadow-outline"
                       />
                     </div>
                     {/* Description field */}
@@ -101,7 +93,7 @@ const Hero = ({ titleData, createCampaign }) => {
                         placeholder="Description"
                         required
                         type="text"
-                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rou ded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rou ded shadow-sm appearance-none focus:border-deep-green-accent-400 focus:outline-none focus:shadow-outline"
                       />
                     </div>
                     {/* Target amount */}
@@ -121,7 +113,7 @@ const Hero = ({ titleData, createCampaign }) => {
                         placeholder="Target Amount"
                         required
                         type="text"
-                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rou ded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rou ded shadow-sm appearance-none focus:border-deep-green-accent-400 focus:outline-none focus:shadow-outline"
                       />
                     </div>
                     {/* Deadline date field */}
@@ -144,13 +136,13 @@ const Hero = ({ titleData, createCampaign }) => {
                         placeholder="Deadline"
                         required
                         type="date"
-                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rou ded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rou ded shadow-sm appearance-none focus:border-deep-green-accent-400 focus:outline-none focus:shadow-outline"
                       />
                     </div>
                     <div className="mt-4 mb-2 sm:mb-4">
                       <button
                         type="submit"
-                        className="inline-flex w-full justify-center items-center h-12 p-6 font-medium uppercase tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-40 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none background"
+                        className="inline-flex w-full justify-center items-center h-12 p-6 font-medium uppercase tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-green-accent-40 hover:bg-deep-green-accent-700 focus:shadow-outline focus:outline-none background"
                       >
                         Initialize
                       </button>

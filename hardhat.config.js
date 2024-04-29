@@ -11,15 +11,12 @@ module.exports = {
       },
     },
   },
+  networks: {
+    hardhat: {
+      accounts: {
+        mnemonic: process.env.SEED_PHRASE,
+      },
+      chainId: 1337,
+    },
+  },
 };
-
-// module.exports = {
-//   networks: {
-//     hardhat: {
-//       accounts: {
-//         mnemonic: process.env.SEED_PHRASE,
-//       },
-//       chainId: 1337,
-//     },
-//   },
-// };

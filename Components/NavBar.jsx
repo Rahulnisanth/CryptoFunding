@@ -43,7 +43,7 @@ const NavBar = () => {
               <li>
                 <button
                   onClick={() => connectWallet()}
-                  className="inline-flex justify-center items-center h-12 p-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-40 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none background"
+                  className="inline-flex justify-center items-center h-12 p-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-green-accent-40 hover:bg-deep-green-accent-700 focus:shadow-outline focus:outline-none background"
                   aria-label="sign-in"
                 >
                   Connect Wallet
@@ -93,7 +93,7 @@ const NavBar = () => {
                               href="/"
                               aria-label="products"
                               title="products"
-                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-green-accent-400"
                             >
                               {item}
                             </a>
@@ -105,7 +105,7 @@ const NavBar = () => {
                           <a
                             href="/"
                             aria-label="wallet button"
-                            className="inline-flex justify-center items-center h-12 p-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-40 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none background"
+                            className="inline-flex justify-center items-center h-12 p-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-green-accent-40 hover:bg-deep-green-accent-700 focus:shadow-outline focus:outline-none background"
                             onClick={() => connectWallet()}
                           >
                             Connect Wallet

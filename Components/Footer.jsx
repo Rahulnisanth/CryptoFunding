@@ -10,31 +10,28 @@ import {
 } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className="backgroundMain py-8 px-5 flex flex-wrap justify-between">
+    <footer className="backgroundMain py-8 px-5 flex flex-wrap justify-center align-center text-center lg:justify-between">
       <p className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-40">
-        © 2024 Crypto Fundze, Inc. All rights reserved.
+        © CryptoFundze {new Date().getFullYear()} - Developed by{" "}
+        <a href="https://www.linktr.ee/Rahulnisanth">Rahulnisanth</a>
       </p>
       <div className="flex justify-center items-end mt-4 text-white md:space-x-6 md:mt-1 md:text-lg lg:text-2xl space-x-6 lg:mt-0">
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <FaTwitter />
-        </a>
         <a
-          href="https://www.linkedin.com"
+          href="https://www.linkedin.com/in/rahul-nisanth"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaLinkedin />
         </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-          <FaGithub />
-        </a>
+
         <a
-          href="https://facebook.com"
+          href="https://github.com/Rahulnisanth"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaFacebook />
+          <FaGithub />
         </a>
+
         <a href="https://google.com" target="_blank" rel="noopener noreferrer">
           <FaGoogle />
         </a>
